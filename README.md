@@ -186,6 +186,6 @@ This project was built to satisfy the following requirements:
 
 **Riyanti Maulya**
 
-* **GitHub Repository**: [Birthday-Reminder-Service-HubbedIn](https://github.com/Ricanz/Birthday-Reminder-Service—HubbedIn)
+* **GitHub Repository**: [Birthday-Reminder-Service-HubbedIn](https://github.com/Ricanz/Birthday-Reminder-Service---HubbedIn)
 
 ---
