@@ -6,8 +6,6 @@ It uses Agenda with MongoDB and separates API and worker processes.
 
 ---
 
-## Addressing HR Feedback
-
 ### 1. Avoiding Cron-like Full DB Pulls
 Previous approach resembled a cron job that recalculated all users repeatedly.
 
