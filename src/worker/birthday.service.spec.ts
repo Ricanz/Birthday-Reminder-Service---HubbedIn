@@ -1,5 +1,5 @@
 import moment from 'moment-timezone';
-import { isBirthdayAt9AM } from '../worker/birthday.service';
+import { isBirthdayAt9AM } from './birthday.util';
 
 describe('Birthday reminder timing', () => {
     it('returns true when it is 9 AM in user timezone on birthday', () => {

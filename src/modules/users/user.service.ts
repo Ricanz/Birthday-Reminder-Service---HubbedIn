@@ -1,12 +1,16 @@
 import { UserRepository } from './user.repository';
 import { CreateUserDTO, UpdateUserDTO } from './dto';
 import { UserModel } from './user.model';
+import BirthdayService from '../../worker/birthday.service';
 
 export class UserService {
-    static create(data: CreateUserDTO) {
-        return UserRepository.create(data);
-    }
+    static async create(data: CreateUserDTO) {
+        const user = await UserRepository.create(data);
 
+        await BirthdayService.scheduleBirthdayJob(user);
+
+        return user;
+    }
 
     static getById(id: string) {
         return UserRepository.findById(id);
@@ -34,8 +38,14 @@ export class UserService {
         };
     }
 
-    static update(id: string, data: UpdateUserDTO) {
-        return UserRepository.update(id, data);
+    static async update(id: string, data: UpdateUserDTO) {
+        const user = await UserRepository.update(id, data);
+
+        if (data.birthday || data.timezone) {
+            await BirthdayService.rescheduleBirthdayJob(user);
+        }
+
+        return user;
     }
 
     static delete(id: string) {

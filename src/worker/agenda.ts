@@ -8,6 +8,9 @@ export const agenda = new Agenda({
         collection: 'agendaJobs',
     },
 });
+agenda.on('start', job => {
+    logger.info({ job: job.attrs.name }, 'Job started');
+});
 
 agenda.on('ready', () => {
     logger.info('Agenda connected');
